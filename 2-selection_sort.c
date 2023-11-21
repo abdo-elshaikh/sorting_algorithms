@@ -1,32 +1,38 @@
 #include "sort.h"
 
 /**
- * selection_sort - Sort an array of integers
- * @array: The array to be sorted
- * @size: The number of elements in @array
- * Return: Nothing
+ * selection_sort - sorts an array of integers using a selction sort
+ * algorithm
+ * @array: array of integers to be sorted
+ * @size: amount of elements in array
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, min;
-	int temp;
+	int i, j, min_j, temp, n = (int)size;
 
-	if (!array || size <= 1)
+	if (!array || size < 2)
 		return;
 
-	for (i = 0; i < size - 1; i++)
+	/* at every position in the n-member array */
+	for (i = 0; i < n - 1; i++)
 	{
-		min = i;
-		for (j = i + 1; j < size; j++)
+		/* scan from that position to the end, */
+		min_j = i;
+		for (j = i + 1; j < n; j++)
 		{
-			if (array[j] < array[min])
-				min = j;
+			/* determine the minimum value in that range */
+			if (array[j] < array[min_j])
+			{
+				min_j = j;
+			}
 		}
-		if (min != i)
+		/* and if it is lower than the value at start of range, */
+		/* swap them */
+		if (min_j != i)
 		{
 			temp = array[i];
-			array[i] = array[min];
-			array[min] = temp;
+			array[i] = array[min_j];
+			array[min_j] = temp;
 			print_array(array, size);
 		}
 	}
