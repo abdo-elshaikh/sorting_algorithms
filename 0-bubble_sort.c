@@ -2,9 +2,9 @@
 
 /**
  * bubble_sort - Sort an array of integers in ascending order
- * using the Bubble sort algorithm
  * @array: The array to be sorted
  * @size: The number of elements in @array
+ * Return: Nothing
  */
 void bubble_sort(int *array, size_t size)
 {
