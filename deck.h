@@ -1,7 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 
-
+#include <stdio.h>
 typedef enum kind_e
 {
     SPADE = 0,
@@ -39,6 +39,9 @@ typedef struct deck_node_s
 
 
 void sort_deck(deck_node_t **deck);
-
+void sort_suit(deck_node_t **deck);
+void sort_val(deck_node_t **deck);
+void swap(deck_node_t **deck, deck_node_t *card1, deck_node_t *card2);
+int vcmp(const card_t *card1, const card_t *card2);
 
 #endif /* DECK_H */
